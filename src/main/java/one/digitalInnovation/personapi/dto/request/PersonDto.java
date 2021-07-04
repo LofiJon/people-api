@@ -1,7 +1,5 @@
 package one.digitalInnovation.personapi.dto.request;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -10,11 +8,12 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.sun.istack.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import one.digitalInnovation.personapi.model.Phone;
 
 
 @Data
@@ -37,9 +36,10 @@ public class PersonDto {
     @CPF
     private String cpf;
 
-    private LocalDate birthDate;
+    @NotNull
+    private String birthDate;
 
-    @NotEmpty
     @Valid
-    List<Phone> phone =new ArrayList<>();
+    @NotEmpty
+    private List<PhoneDto> phone;
 }

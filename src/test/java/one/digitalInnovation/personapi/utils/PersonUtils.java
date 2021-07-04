@@ -1,4 +1,5 @@
 package one.digitalInnovation.personapi.utils;
+import java.time.LocalDate;
 import java.util.Collections;
 
 import one.digitalInnovation.personapi.dto.request.PersonDto;
@@ -6,20 +7,20 @@ import one.digitalInnovation.personapi.model.Person;
 
 public class PersonUtils {
 
-    private static final String FIRST_NAME = "Pedro";
-    private static final String LAST_NAME = "Mateus";
-    private static final String CPF_NUMBER = "999.999.999-99";
+    private static final String FIRST_NAME = "Rodrigo";
+    private static final String LAST_NAME = "Peleias";
+    private static final String CPF_NUMBER = "369.333.878-79";
     private static final long PERSON_ID = 1L;
-    //public static final LocalDate BIRTH_DATE = LocalDate.of(2010, 10, 1);
+    public static final LocalDate BIRTH_DATE = LocalDate.of(2010, 10, 1);
 
     public static PersonDto createFakeDTO() {
-        final PersonDto personDto = PersonDto.builder()
+        return PersonDto.builder()
                 .firstName(FIRST_NAME)
                 .lastName(LAST_NAME)
                 .cpf(CPF_NUMBER)
-                .phone(Collections.singletonList(PhoneUtils.createFakeEntity()))
+                .birthDate("04-04-2010")
+                .phone(Collections.singletonList(PhoneUtils.createFakeDTO()))
                 .build();
-        return personDto;
     }
 
     public static Person createFakeEntity() {
@@ -28,7 +29,12 @@ public class PersonUtils {
                 .firstName(FIRST_NAME)
                 .lastName(LAST_NAME)
                 .cpf(CPF_NUMBER)
+                .birthDate(BIRTH_DATE)
                 .phone(Collections.singletonList(PhoneUtils.createFakeEntity()))
                 .build();
     }
+
+
+
+
 }
